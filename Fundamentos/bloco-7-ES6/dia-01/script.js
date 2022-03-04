@@ -93,3 +93,87 @@ template literals e ternary operator . */
 /* Na matemática, o fatorial de um número não negativo N , com a notação N! ,
 é o produto de todos os inteiros menores ou iguais a N . 
 Exemplo: 4! = 4 * 3 * 2 * 1 = 24. */
+
+/* const factorial = (number) => {
+    let result = 1;
+    for (let index = 2; index <= number; index += 1) {
+        result *= index;
+    }
+    return result;
+}
+
+console.log(factorial(4)); */
+
+// Recursiva
+/* Bônus (opcional): tente fazer o mesmo exercício de forma recursiva .
+ Spoiler: É possível resolver com uma linha usando ternary operator . */
+/* 
+const factorial = number => number > 1 ? number * factorial(number - 1) : 1;
+console.log(factorial(4));
+ */
+// Parte II  - Exercicio 02
+// Crie uma função que receba uma frase e retorne qual a maior palavra.
+// exemplo :longestWord('Antônio foi no banheiro e não sabemos o que aconteceu')
+// retorna 'aconteceu'
+/* const longestWord = frase => {
+    let arrayStr = frase.split(' ');
+    let maior = 0;
+    let palavra = '';
+
+    for (const str of arrayStr) {
+        if (str.length > maior) {
+            maior = str.length;
+            palavra = str;
+        }
+    }
+    return palavra;
+}
+console.log(longestWord("Antonio foi ao banheiro e não sabemos o que aconteceu"));
+ */
+// longestWord com sort em uma linha
+/* const longestWord = frase => frase.split(' ').sort((a, b) => b.length - a.length)[0];
+console.log(longestWord('Antonio foi ao banheiro e não sabemos o que aconteceu')); */
+
+// Parte II - Exercicio 3
+/* Crie uma página que contenha:
+Um botão ao qual será associado um event listener ;
+Uma variável clickCount no arquivo JavaScript que acumule o número de clicks no botão;
+Um campo no HTML que vá atualizando a quantidade de clicks no botão conforme a 
+variável clickCount é atualizada. */
+
+
+/* let clickCount = 0;
+let contaButton = document.getElementById('#texto')
+document.getElementById('but')
+    .addEventListener('click', () => contaButton.innerHTML= clickCount += 1); */
+
+// Parte II - Exercicio 4
+/*  Crie um código JavaScript com a seguinte especificação:
+Não se esqueça de usar template literals
+Função 1 : Escreva uma função que vai receber uma string como parâmetro. 
+Sua função deverá procurar pela letra x em uma string qualquer que você 
+determinar e substituir pela string que você passou como parâmetro. 
+Sua função deve retornar essa nova string .
+Exemplo:
+String determinada: "Tryber x aqui!"
+Parâmetro: "Bebeto"
+Retorno: "Tryber Bebeto aqui!"
+Um array com escopo global, que é o escopo do arquivo JS , nesse caso, 
+contendo cinco strings com suas principais skills .
+ */
+
+const array = ["Android", "iOS", "Architecture", "Teach ", "Run"];
+
+function buildSkillsPhrase(param) {
+    const fun1 = paramInner => (
+        `Tryber ${paramInner} aqui!  Tudo bem?`
+    );
+    let rsult = `${fun1(param)}
+    Minhas cinco principais habilidades são:`;
+    array.forEach((skill, index) =>
+        rsult = `${rsult} - ${skill}`);
+    rsult = `${rsult} #goTrybe`;
+    return rsult;
+}
+
+console.log(buildSkillsPhrase("Patrícia"));
